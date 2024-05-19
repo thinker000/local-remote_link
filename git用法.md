@@ -165,3 +165,64 @@ git remote -v  #用于显示当前Git仓库配置的远程仓库的名称及其�
 4.将本地更改/或合并后的更改推送到远程仓库；git push origin 
 ```
 
+## 分支git branch
+
+```bash
+#1.列出分支
+git branch		#列出所有本地分支
+git branch	-a	#列出所有分支，包括远程分支
+
+#2.创建分支
+git branch 新分支名 
+
+#3.删除分支
+git branch -d 分支名  #删除一个本地分支，如果当前分支进行了修改，而没有合并时，无法删除分支
+git branch -D 分支名  #删除一个未合并更改的分支
+
+#4.重命名当前分支
+git branch -m 新分支名
+
+#5.设置上游分支
+git branch --set-upstream-to=origin/new-feature new-feature
+#git branch --set-upstream-to=远程仓库名/远程分支名 本地分支名
+
+设置上游分支（upstream branch）是为了方便地进行分支同步、推送和拉取操作。上游分支通常是一个远程分支，与本地分支建立关联后，可以简化日常的 Git 工作流程。
+git pull    等同于   git pull origin feature-branch
+```
+
+## git checkout / git switch
+
+```bash
+#切换分支	
+git checkout 分支名   
+	
+
+
+#创建并切换到新分支
+git checkout -b 新分支名
+	
+
+#恢复文件
+git checkout -- 文件名      #撤销对工作区的修改，恢复文件到最新提交状态(即丢弃工作取得修改，恢复文件到最近一次提交的状态)
+git checkout -- . 撤销对所有文件的修改
+
+#切换到已存在的远程分支
+git checkout -b 本地分支名 origin/远程分支名
+
+#切换标签，即切换到一个特定的版本
+git checkout 标签名
+
+
+git switch 分支名   #切换到已存在的分支
+git switch -c 新分支名	#创建并切换到新分支
+git switch -m 分支名	#丢弃未提交的修改，并切换分支
+git switch 提交哈希		#切换到某个提交版本
+git switch -c 本地分支名 origin/远程分支名 #切换远程分支
+```
+
+## git rebase branch-name
+
+```
+
+```
+
